@@ -17,7 +17,7 @@
 
 ## Getting Started
 
-### Perequisite
+### Prerequisite
 Go ahead and check the most recent version of each of these:
 - Ruby (ruby --version)
 - SQLite3 (sqlite3 --version)
