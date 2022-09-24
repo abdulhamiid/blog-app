@@ -17,7 +17,7 @@ RSpec.describe Like, type: :model do
       likes_counter: 0
     )
   end
-  
+
   it '@posts like_counter should increase by one' do
     Like.create(author_id: @user.id, post_id: @post.id)
     Like.create(author_id: @user.id, post_id: @post.id)
