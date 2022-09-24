@@ -1,0 +1,16 @@
+current directory: /home/abdulhamid/microverse/blog-app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+/home/abdulhamid/.rbenv/versions/3.1.2/bin/ruby -I /home/abdulhamid/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220924-19354-a7eru8.rb extconf.rb
+creating Makefile
+
+current directory: /home/abdulhamid/microverse/blog-app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= clean
+
+current directory: /home/abdulhamid/microverse/blog-app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/abdulhamid/microverse/blog-app/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20220924-19354-oeiay0/debug
