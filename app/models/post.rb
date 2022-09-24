@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :likes
@@ -7,7 +9,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: true
   validates :likes_counter, numericality: true
-  
+
   def update_posts_counter
     author.increment!(:posts_counter)
   end
