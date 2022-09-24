@@ -1,52 +1,49 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { Post.new(title: 'Title', author_id: 1, comments_counter: 0, likes_counter: 0) }
-
-  before { subject.save }
+  before(:all) do
+    @post = Post.create(title: 'Title', comments_counter: 0, likes_counter: 0)
+    @user = User.create(name: 'Peter', photo: 'https://unsplash.com/box.jpg', bio: 'Engineer', posts_counter: 0)
+  end
 
   it 'title should be present' do
-    subject.title = nil
-    expect(subject).to_not be_valid
+    @post.title = nil
+    expect(@post).to_not be_valid
   end
 
   it 'title should not be too long' do
-    subject.title = 'a' * 251
-    expect(subject).to_not be_valid
+    @post.title = 'a' * 251
+    expect(@post).to_not be_valid
   end
 
   it 'comments_counter should be present' do
-    subject.comments_counter = nil
-    expect(subject).to_not be_valid
+    @post.comments_counter = nil
+    expect(@post).to_not be_valid
   end
 
   it 'comments_counter should be an integer' do
-    subject.comments_counter = 'string'
-    expect(subject).to_not be_valid
+    @post.comments_counter = 'string'
+    expect(@post).to_not be_valid
   end
 
   it 'comments_counter should be greater than or equal to 0' do
-    subject.comments_counter = -1
-    expect(subject).to_not be_valid
+    @post.comments_counter = -1
+    expect(@post).to_not be_valid
   end
 
   it 'likes_counter should be present' do
-    subject.likes_counter = nil
-    expect(subject).to_not be_valid
+    @post.likes_counter = nil
+    expect(@post).to_not be_valid
   end
 
   it 'likes_counter should be an integer' do
-    subject.likes_counter = 'string'
-    expect(subject).to_not be_valid
+    @post.likes_counter = 'string'
+    expect(@post).to_not be_valid
   end
 
   it 'likes_counter should be greater than or equal to 0' do
-    subject.likes_counter = -1
-    expect(subject).to_not be_valid
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
+    @post.likes_counter = -1
+    expect(@post).to_not be_valid
   end
 
   it 'should belong to author' do
