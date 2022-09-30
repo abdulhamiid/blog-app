@@ -1,13 +1,15 @@
 <header>
-  <h1>Post by <%= @user.name %></h1>
-  <span>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter %></span>
+  <h1>Post by <%= @post.author.name %></h1>
+  <span>Comments: <%= @post.comments_counter%>,</span>
+  <span>Likes: <%= @post.likes_counter %></span>
   <hr/>
 </header>
 
-<div>
-  <h2><%= @post.title %></h2>
-  <P><%= @post.text %>
-  <% @post.comments.each do |comment| %>
-    <p>Username: <%= comment.text %></p>
-  <% end %>
-</div>
+<% if @post.comments.length == 0 %>
+      <p>No comments Available!</p>
+    <% else %>
+    <p><%= @post.text %><p>
+    <% @post.comments.each do |comment| %>
+      <p><%= comment.author.name %>: <%=comment.text %></p>
+    <%end%>
+<% end %>
