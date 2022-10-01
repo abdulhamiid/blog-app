@@ -1,6 +1,9 @@
 <header>
   <h1><%= @user.name %></h1>
-  <p>Number of posts: <%= @user.posts_counter || 0 %></p>
+  <p>
+  <span><%= link_to 'Number of posts:', user_posts_url(@user) %></span>
+  <span><%= @user.posts_counter || 0 %></span>
+  </p>
   <hr/>
 </header>
 
