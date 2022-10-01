@@ -4,6 +4,8 @@
 </header>
 
 <section>
+  <%= link_to "New Post", new_user_post_path %>
+  <br/>
   <% @user.posts.each do |post| %>
     <article>
       <h2>
@@ -20,4 +22,5 @@
   <% end %>
 </section>
 <br/>
+
 <button>Pagination</button>
