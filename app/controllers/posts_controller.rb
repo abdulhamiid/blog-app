@@ -8,14 +8,17 @@ class PostsController < ApplicationController
   end
 
   def new
-    @article = Post.new
+    @post = Post.new
   end
 
   def create
-    @post = Post.new(article_params)
+    @post = Post.new(post_params)
+    @post.author_id = current_user.id
+    @post.comments_counter = 0
+    @post.likes_counter = 0
 
     if @post.save
-      redirect_to @post
+      redirect_to user_posts_path(@post.author_id)
     else
       render :new, status: :unprocessable_entity
     end
