@@ -1,10 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request do
+RSpec.describe 'Posts', type: %w[request feature] do
   describe 'GET #index' do
     before(:each) { get users_path }
     it 'is success ' do
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders index template with right text' do
+      visit '/users/1/posts/'
+      expect(page).to have_text('Recent Posts')
     end
 
     it 'renders the correct template' do
