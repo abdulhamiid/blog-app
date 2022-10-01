@@ -1,20 +1,15 @@
-<h1>Post #1 by username</h1>
-<div>
-<h3>Post 2</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime magni error quidem eos, veniam
-tenetur. Quos quod hic vel explicabo dolorum eos quo autem. Optio, laudantium quaerat! Aut voluptates suscipit, velit unde nesciunt, repellat ea voluptatibus aliquam quae itaque deserunt? 
-uas nam dolores odio praesentium voluptas. Voluptate natus officia aspernatur laborum excepturi 
-erum in suscipit tenetur voluptas eaque. Quam optio deserunt numquam culpa ullam animi, perferendis 
-oluta, natus fugiat doloribus modi quibusdam atque repellat cupiditate eos sunt. Dicta a hic 
-epudiandae iure officia, aspernatur eveniet odit vero, impedit, ut molestiae libero quae eos alias 
-ulla totam natus nostrum eius asperiores!</p>
-<div>
-<p>Username: Comments 1</p>
-<p>Username: Comments 2</p>
-<p>Username: Comments 3</p>
-<p>Username: Comments 4</p>
-<p>Username: Comments 5</p>
-<p>Username: Comments 6</p>
-<p>Username: Comments 7</p>
-</div>
-</div>
+<header>
+  <h1>Post by <%= @post.author.name %></h1>
+  <span>Comments: <%= @post.comments_counter%>,</span>
+  <span>Likes: <%= @post.likes_counter %></span>
+  <hr/>
+</header>
+
+<% if @post.comments.length == 0 %>
+      <p>No comments Available!</p>
+    <% else %>
+    <p><%= @post.text %><p>
+    <% @post.comments.each do |comment| %>
+      <p><%= comment.author.name %>: <%=comment.text %></p>
+    <%end%>
+<% end %>

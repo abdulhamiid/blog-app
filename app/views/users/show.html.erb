@@ -1,5 +1,9 @@
 <header>
   <h1><%= @user.name %></h1>
+  <p>
+  <span>Number of posts: </span>
+  <span><%= @user.posts_counter || 0 %></span>
+  </p>
   <hr/>
 </header>
 
@@ -10,21 +14,16 @@
 </section>
 
 <section>
-  <h2>Recent Posts</h2>
   <div>
-    <h3>Post 1</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolores maxime quos, nam mollitia
-    aliquid iste at porro sunt consequatur.</p>
+    <% @user.recent_posts.each do |post| %>
+      <h3>
+      <%= link_to link_to post.title, user_post_path(@user.id, post.id) %>
+      </h3>
+      <p><%= post.text %></p>
+    <% end %>
   </div>
-  <div>
-    <h3>Post 2</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolores maxime quos, nam mollitia
-    aliquid iste at porro sunt consequatur.</p>
-  </div>
-  <div>
-    <h3>Post 3</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolores maxime quos, nam mollitia
-    aliquid iste at porro sunt consequatur.</p>
-  </div>
-  <button>See all posts</button>
+  
+  <button>
+    <%= link_to 'See all posts', user_posts_url(@user) %>
+  </button>
 </section>
