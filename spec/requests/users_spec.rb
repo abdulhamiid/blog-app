@@ -14,5 +14,10 @@ RSpec.describe 'Users', type: :request do
     it 'Contains the placeholder text' do
       expect(response.body).to match('All Users')
     end
+
+    it "does not render a different template" do
+      get "/users"
+      expect(response).to_not render_template(:show)
+    end
   end
 end
