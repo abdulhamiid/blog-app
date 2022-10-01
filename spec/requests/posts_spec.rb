@@ -15,8 +15,8 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to match('BlogApp')
     end
 
-    it "does not render a different template" do
-      get "/users/1/posts"
+    it 'does not render a different template' do
+      get '/users/1/posts'
       expect(response).to_not render_template(:show)
     end
   end
