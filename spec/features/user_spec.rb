@@ -24,6 +24,8 @@ RSpec.describe "users/index.html.erb", type: :feature do
   it "it redirect to user show page" do
     visit users_path
     expect(page).to have_link 'John Doe', href: user_path(User.first)
+    click_link 'John Doe'
+    expect(page).to have_current_path(user_path(User.first))
   end
 
   it "displays correct user name by clicking on user" do
