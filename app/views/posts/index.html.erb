@@ -1,6 +1,7 @@
 <header>
   <img src="<%= @user.photo %>" alt="profile_img" width="50" height="50">
   <h1><%= @user.name %></h1>
+  <p>Number of posts: <%= @user.posts_counter || 0 %></p>
   <hr/>
 </header>
 
