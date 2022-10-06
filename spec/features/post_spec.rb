@@ -37,7 +37,7 @@ RSpec.describe "posts", type: :feature do
     end
 
     it "has first comments on a post" do
-      expect(page).to have_text 'Username: This is the fist comment on capybara'
+      expect(page).to have_text 'John Doe: This is the fist comment on capybara'
     end
 
     it "has the number of comments and likes for a post" do
@@ -53,6 +53,12 @@ RSpec.describe "posts", type: :feature do
       expect(page).to have_link 'Capybara'
       click_link 'Capybara'
       expect(page).to have_current_path(user_post_path(User.first, Post.first))
+    end
+
+    it "has a link to new post page" do
+      expect(page).to have_link 'New Post'
+      click_link 'New Post'
+      expect(page).to have_current_path(new_user_post_path(User.first))
     end
   end
 
@@ -97,6 +103,10 @@ RSpec.describe "posts", type: :feature do
     it "add a new comment link redirect to new comment page" do
       click_link('Add a new comment')
       expect(page).to have_current_path(new_user_post_comment_path(User.first, Post.first))
+    end
+
+    it "has like post button" do
+      expect(page).to have_button('Like post')
     end
   end
 end
