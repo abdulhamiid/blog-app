@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "posts/index.html.erb", type: :feature do
+RSpec.describe "posts", type: :feature do
   before :each do
     # create use
     User.create(name: 'John Doe', bio: 'Lorem ipsum dolor sit user\'s bio', photo: 'https://www.w3schools.com/howto/img_avatar.png', posts_counter: 0)
@@ -12,41 +12,82 @@ RSpec.describe "posts/index.html.erb", type: :feature do
 
     # create comments
     Comment.create(text: 'This is the fist comment on capybara', post_id: Post.first.id, author_id: User.first.id)
-    visit user_posts_path(User.first)
   end
 
-  it "displays user photo" do
-    expect(page).to have_css("img[src*='https://www.w3schools.com/howto/img_avatar.png']")
+  # User post index page tests
+  context "posts/index.html.erb" do
+    before :each do
+      visit user_posts_path(User.first)
+    end
+
+    it "displays user photo" do
+      expect(page).to have_css("img[src*='https://www.w3schools.com/howto/img_avatar.png']")
+    end
+
+    it "display user's username" do
+      expect(page).to have_text('John Doe')
+    end
+
+    it "has the number of posts the user has written" do
+      expect(page).to have_text('Number of posts: 3')
+    end
+
+    it "has a post title" do
+      expect(page).to have_text('Capybara')
+    end
+
+    it "has first comments on a post" do
+      expect(page).to have_text 'Username: This is the fist comment on capybara'
+    end
+
+    it "has the number of comments and likes for a post" do
+      expect(page).to have_text 'Comments: 1'
+      expect(page).to have_text 'Comments: 0'
+    end
+
+    it "has pagination button section" do
+      expect(page).to have_button 'Pagination'
+    end
+
+    it "button click redirect to user's posts index page" do
+      expect(page).to have_link 'Capybara'
+      click_link 'Capybara'
+      expect(page).to have_current_path(user_post_path(User.first, Post.first))
+    end
   end
 
-  it "display user's username" do
-    expect(page).to have_text('John Doe')
-  end
+  # User post show page tests
+  context "posts/show.html.erb" do
+    before :each do
+      visit user_post_path(User.first, Post.first)
+    end
 
-  it "has the number of posts the user has written" do
-    expect(page).to have_text('Number of posts: 3')
-  end
+    it "has the post title" do
+      expect(page).to have_text('Capybara')
+    end
 
-  it "has a post title" do
-    expect(page).to have_text('Capybara')
-  end
+    it "has the post author" do
+      expect(page).to have_text('Post by John Doe')
+    end
 
-  it "has first comments on a post" do
-    expect(page).to have_text 'Username: This is the fist comment on capybara'
-  end
+    it "has the post number of comments" do
+      expect(page).to have_text('Comments: 1')
+    end
 
-  it "has the number of comments and likes for a post" do
-    expect(page).to have_text 'Comments: 1'
-    expect(page).to have_text 'Comments: 0'
-  end
+    it "has the post number of likes" do
+      expect(page).to have_text('Likes: 0')
+    end
 
-  it "has pagination button section" do
-    expect(page).to have_button 'Pagination'
-  end
+    it "has the post body" do
+      expect(page).to have_text('Capybara helps you test web applications')
+    end
 
-  it "button click redirect to user's posts index page" do
-    expect(page).to have_link 'Capybara'
-    click_link 'Capybara'
-    expect(page).to have_current_path(user_post_path(User.first, Post.first))
+    it "has the username of each commenter" do
+      expect(page).to have_text('John Doe:')
+    end
+
+    it "has the username of each commenter" do
+      expect(page).to have_text('John Doe: This is the fist comment on capybara')
+    end
   end
 end
