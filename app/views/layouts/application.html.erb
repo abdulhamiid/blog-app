@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p><br/>
+    <p class="alert"><%= alert %></p><br/>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <a href="/users/sign_in">Sign In</a>
+    <% end %>
     <%= yield %>
   </body>
 </html>
