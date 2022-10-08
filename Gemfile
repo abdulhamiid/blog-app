@@ -73,6 +73,12 @@ end
 
 gem 'devise'
 
+gem "bootstrap", "~> 5.0"
+
+gem "bootstrap_form", "~> 5.1"
+
+gem 'jquery-rails'
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'

@@ -1,41 +1,14 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.email_field :email, placeholder: 'name@example.com', autofocus: true, autocomplete: "email" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-  <%= f.label :photo %><br />
-  <%= f.text_field :photo, autocomplete: "photo" %>
-  </div>
-
-  <div class="field">
-  <%= f.label :bio %><br />
-  <%= f.text_area :bio, autocomplete: "bio" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
+  <%= f.text_field :name, autocomplete: "name", placeholder: "John Doe" %>
+  <%= f.text_field :photo, autocomplete: "photo", value: "https://www.w3schools.com/howto/img_avatar.png", placeholder: "https://www.w3schools.com/howto/img_avatar.png" %>
+  <%= f.text_area :bio, autocomplete: "bio", placeholder: 'Add bio'%>
+  <%= f.password_field :password, help: 'A good password should be at least six characters long' %>
+  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
