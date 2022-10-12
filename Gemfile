@@ -51,6 +51,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'bullet'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '>= 3.9.0'
   gem 'shoulda-matchers', '~> 5.0'

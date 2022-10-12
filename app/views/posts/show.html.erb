@@ -9,8 +9,8 @@
 <%= form_with url: user_post_likes_path(@post.author, @post), method: :post do |f| %>
   <%= f.submit 'Like post' %>
 <% end %>
-<% @post.comments.each do |comment| %>
+<% @post.comments.includes([:author]).each do |comment| %>
   <p><%= comment.author.name %>: <%=comment.text %></p>
 <%end%>
-<%= link_to 'Add comment', new_user_post_comment_url(@post.author, @post)  %>
+<%= link_to 'Add a new comment', new_user_post_comment_url(@post.author, @post)  %>
 
