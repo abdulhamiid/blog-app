@@ -8,8 +8,6 @@ ruby '3.1.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
-gem 'capybara'
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -53,6 +51,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'bullet'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '>= 3.9.0'
   gem 'shoulda-matchers', '~> 5.0'
