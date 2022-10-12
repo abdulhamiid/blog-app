@@ -1,28 +1,23 @@
-<header>
-  <img src="<%= @user.photo %>" alt="profile_img" width="50" height="50">
-  <h1><%= @user.name %></h1>
-  <p>Number of posts: <%= @user.posts_counter || 0 %></p>
-  <hr/>
-</header>
+<%= render "users/nav" %>
 
 <section>
   <%= link_to "New Post", new_user_post_path %>
   <br/>
   <% @user.posts.each do |post| %>
-    <article>
-      <h2>
+    <article class="p-4 my-3 border border-1 col-12>
       <%= link_to link_to post.title, user_post_path(@user.id, post.id) %>
-      </h2>
       <p><%= post.text %></p>
       <span>Comments: <%= post.comments_counter%>,</span>
       <span>Likes: <%= post.likes_counter %></span>
-      <% post.five_recent_comments.each do |comment| %>
-        <p><%= comment.author.name %>: <%= comment.text %></p>
-      <% end %>
-    <hr/>
     </article>
+
+    <% post.five_recent_comments.each do |comment| %>
+      <div class="p-4 my-3 border border-1 col-12">
+        <p><%= comment.author.name %>: <%= comment.text %></p>
+      </div>
+    <% end %>
   <% end %>
 </section>
 <br/>
 
-<button>Pagination</button>
+<button class="btn btn-outline-dark d-grid gap-2 col-3 mx-auto">Pagination</button>

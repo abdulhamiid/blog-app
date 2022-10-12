@@ -1,20 +1,11 @@
-<header>
-  <img src="<%= @user.photo %>" alt="profile_img" width="50" height="50"> 
-  <h1><%= @user.name %></h1>
-  <p>
-  <span>Number of posts: </span>
-  <span><%= @user.posts_counter || 0 %></span>
-  </p>
-  <hr/>
-</header>
+<%= render "nav" %>
 
-<section>
+<section class="p-4 my-3 border border-1 col-12">
   <h2>Bio</h2>
   <p><%= @user.bio %></p>
-  <hr/>
 </section>
 
-<section>
+<section class="p-4 my-3 border border-1 col-12">
   <div>
     <% @user.recent_posts.each do |post| %>
       <h3>
@@ -23,8 +14,6 @@
       <p><%= post.text %></p>
     <% end %>
   </div>
-  
-  <button>
-    <%= link_to 'See all posts', user_posts_url(@user) %>
-  </button>
 </section>
+<%= link_to 'See all posts', user_posts_url(@user), class: "btn btn btn-outline-dark d-grid gap-2 col-3 mx-auto" %>
+
