@@ -1,9 +1,8 @@
 <h1>New Comment</h1>
 
-<%= form_with model: Comment.new, url: user_post_comments_path, method: :post, local: true, scope: :comment do |form| %>
+<%= bootstrap_form_for Comment.new, url: user_post_comments_path, method: :post, local: true, scope: :comment do |form| %>
   <div>
-    <%= form.label :text %><br>
     <%= form.text_area :text %><br/>
-    <%= form.submit "Add Comment" %>
+    <%= form.submit "Add Comment", class: "btn btn-primary" %>
   </div>
 <% end %>
