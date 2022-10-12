@@ -8,8 +8,6 @@ ruby '3.1.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
-gem "bullet"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -56,6 +54,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '>= 3.9.0'
   gem 'shoulda-matchers', '~> 5.0'
+  gem "bullet"
 end
 
 group :development do
