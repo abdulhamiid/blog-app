@@ -39,7 +39,7 @@ RSpec.describe "users", type: :feature do
 
   context "users/show.html.erb" do
     before :each do
-      # create use
+      # create user
       User.create(name: 'John Doe', bio: 'Lorem ipsum dolor sit user\'s bio', posts_counter: 0)
       
       # create posts
