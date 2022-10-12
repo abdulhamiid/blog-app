@@ -1,9 +1,37 @@
 <h1>New Comment</h1>
 
-<%= form_with model: Comment.new, url: user_post_comments_path, method: :post, local: true, scope: :comment do |form| %>
+<%= bootstrap_form_for Comment.new, url: user_post_comments_path, method: :post, local: true, scope: :comment do |form| %>
   <div>
-    <%= form.label :text %><br>
     <%= form.text_area :text %><br/>
-    <%= form.submit "Add Comment" %>
+    <%= form.submit "Add Comment", class: "btn btn-primary" %>
   </div>
 <% end %>
+Install the required dependecies with:
+```
+bundle install
+```
+Install npm dependencies with:
+```
+npm install
+```
+Before running below commands update config/database.yml with your local DBcredentials. Then run:
+```
+rake db:create
+```
+```
+rake db:migrate
+```
+```
+rake db:seed
+```
+<h1>New Post</h1>
+
+<%= bootstrap_form_for Post.new, url: user_posts_path, method: :post, local: true, scope: :post do |form| %>
+  <div>
+    <%= form.text_field :title, placeholder: "Post title" %>
+    <%= form.text_area :text %>
+    <%= form.submit "Add Post" %>
+  </div>
+<% end %>
+<br/>
+<%= link_to "Back", user_posts_path %>
