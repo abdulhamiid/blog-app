@@ -11,11 +11,11 @@
       <span>Likes: <%= post.likes_counter %></span>
     </article>
 
-    <% post.five_recent_comments.each do |comment| %>
-      <div class="p-4 my-3 border border-1 col-12">
-        <p><%= comment.author.name %>: <%= comment.text %></p>
+    <div class="p-4 my-3 border border-1 col-12">
+      <% post.five_recent_comments.each do |comment| %>
+          <p><%= comment.author.name %>: <%= comment.text %></p>
+      <% end %>
       </div>
-    <% end %>
   <% end %>
 </section>
 <br/>

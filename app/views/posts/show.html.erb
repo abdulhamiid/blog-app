@@ -12,6 +12,10 @@
 <%= form_with url: user_post_likes_path(@post.author, @post), method: :post do |f| %>
   <%= f.submit 'Like post', class: "btn btn-dark mb-2" %>
 <% end %>
+<%= link_to "Destroy", user_post_path(@post.author, @post), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
 <% @post.comments.includes([:author]).each do |comment| %>
   <p><%= comment.author.name %>: <%=comment.text %></p>
 <%end%>
