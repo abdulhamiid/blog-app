@@ -23,7 +23,7 @@
   <div class="d-flex align-items-center">
     <%= link_to "x", user_post_comment_path(@post.author, @post, comment), data: {
                       turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
+                      turbo_confirm: "Delete comment?"
                     },
                     class: "btn btn-danger me-2 btn-sm" %>
     <p class="m-0 border-bottom py-4 col"><%= comment.author.name %>: <%=comment.text %></p>
