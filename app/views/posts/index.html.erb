@@ -1,7 +1,7 @@
 <%= render "users/nav" %>
 
 <section>
-  <%= link_to "New Post", new_user_post_path %>
+  <%= link_to "New Post", new_user_post_url(@user) %>
   <br/>
   <% @user.posts.each do |post| %>
     <article class="p-4 my-3 border border-1 col-12>
