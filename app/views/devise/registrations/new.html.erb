@@ -6,6 +6,7 @@
   <%= f.text_field :name, autocomplete: "name", placeholder: "John Doe" %>
   <%= f.text_field :photo, autocomplete: "photo", value: "https://www.w3schools.com/howto/img_avatar.png", placeholder: "https://www.w3schools.com/howto/img_avatar.png" %>
   <%= f.text_area :bio, autocomplete: "bio", placeholder: 'Add bio'%>
+  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   <%= f.password_field :password, help: 'A good password should be at least six characters long' %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   <div class="actions">
