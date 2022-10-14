@@ -32,7 +32,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.author.decrement!(:posts_counter)
 
-
     if @post.destroy
       flash[:success] = 'Post was successfully deleted.'
     else

@@ -25,13 +25,16 @@
 <% @post.comments.includes([:author]).each do |comment| %>
   </div>
   <div class="d-flex align-items-center">
-    <%= link_to "x", user_post_comment_path(@post.author, @post, comment), data: {
+  <% if can? :destroy, comment %>
+     <%= link_to "x", user_post_comment_path(@post.author, @post, comment), data: {
                       turbo_method: :delete,
                       turbo_confirm: "Delete comment?"
                     },
                     class: "btn btn-danger me-2 btn-sm" %>
-    <p class="m-0 border-bottom py-4 col"><%= comment.author.name %>: <%=comment.text %></p>
+  <% end %>
+  <p class="m-0 border-bottom py-4 col"><%= comment.author.name %>: <%=comment.text %></p>
   </div>
+
 <%end%>
 <%= link_to 'Add a new comment', new_user_post_comment_url(@post.author, @post), class: "btn btn-outline-primary my-3" %>
 

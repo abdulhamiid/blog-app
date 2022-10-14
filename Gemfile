@@ -74,9 +74,9 @@ end
 
 gem 'devise'
 
-gem "bootstrap", "~> 5.0"
+gem 'bootstrap', '~> 5.0'
 
-gem "bootstrap_form", "~> 5.1"
+gem 'bootstrap_form', '~> 5.1'
 
 gem 'jquery-rails'
 
