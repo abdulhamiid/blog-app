@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -72,9 +74,9 @@ end
 
 gem 'devise'
 
-gem "bootstrap", "~> 5.0"
+gem 'bootstrap', '~> 5.0'
 
-gem "bootstrap_form", "~> 5.1"
+gem 'bootstrap_form', '~> 5.1'
 
 gem 'jquery-rails'
 
