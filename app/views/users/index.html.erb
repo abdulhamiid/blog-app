@@ -1,11 +1,13 @@
 <h1>All Users</h1>
 
-<ul>
+<ul class="container">
   <% @users.each do |user| %>
-    <li>
-      <img src="<%= user.photo %>" alt="profile_img" width="50" height="50">
-      <h2><%= link_to user.name, user %></h2>
-      <p>Number of posts: <%= user.posts_counter || 0 %></p>
+    <li class="d-flex p-2 text-white my-3 align-items-center" >
+      <img src="<%= user.photo %>" class="rounded-circle" alt="profile_img" width="70" height="70">
+      <div class="d-flex border border-1 ms-4 p-4 col">
+        <h4><%= link_to user.name, user %></h4>
+        <p class="text-success ms-auto">Number of posts: <%= user.posts_counter || 0 %></p>
+      </div>
     </li>
   <% end %>
 </ul>
