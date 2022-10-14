@@ -35,6 +35,25 @@ To access the cloned directory, run:
 ```
 cd blog-app
 ```
+Install the required dependecies with:
+```
+bundle install
+```
+Install npm dependencies with:
+```
+npm install
+```
+Before running below commands update config/database.yml with your local DBcredentials. Then run:
+```
+rake db:create
+```
+```
+rake db:migrate
+```
+```
+rake db:seed
+```
+
 
 ## Author
 
