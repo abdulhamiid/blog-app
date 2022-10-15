@@ -7,6 +7,8 @@ ruby '3.1.2'
 
 gem 'cancancan'
 
+gem 'jwt'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
@@ -86,3 +88,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'active_model_serializers', '~> 0.10.13'

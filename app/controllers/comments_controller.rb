@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+  def index
+    @user = User.includes(posts: [:comments]).find(params[:user_id])
+    @post = @user.posts.find_by(id: params[:post_id])
+    @comment = @post.comments
+  end
+
   def new
     @comment = Comment.new
   end
