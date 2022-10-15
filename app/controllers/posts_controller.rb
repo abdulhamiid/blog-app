@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id].to_i)
-    render json: @user.posts
   end
 
   def show
     @post = Post.find(params[:id])
-    render json: @post
   end
 
   def new
@@ -20,10 +18,8 @@ class PostsController < ApplicationController
     @post.likes_counter = 0
 
     if @post.save
-      render json: @post, status: :created, location: @band
       redirect_to user_posts_path(@post.author_id)
     else
-      render json: @post.errors, status: :unprocessable_entity
       render :new, status: :unprocessable_entity
     end
   end
