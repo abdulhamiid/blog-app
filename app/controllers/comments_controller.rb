@@ -1,4 +1,4 @@
-lass CommentsController < ApplicationController
+class CommentsController < ApplicationController
   def index
     @user = User.includes(posts: [:comments]).find(params[:user_id])
     @post = @user.posts.find_by(id: params[:post_id])
@@ -37,5 +37,6 @@ lass CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).pe
+    params.require(:comment).permit(:text)[:text]
   end
+end
