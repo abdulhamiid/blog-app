@@ -98,7 +98,7 @@ header {
   right: 15px;
 }
 
-#home a, 
+#home a,
 #back a {
   color: black;
   position: absolute;
@@ -107,7 +107,7 @@ header {
   font-size: 20px;
 }
 
-.like, 
+.like,
 .bi-trash-fill {
   font-size: 20px;
   background: none;
