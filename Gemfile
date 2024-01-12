@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-ruby '3.2.2'
+ruby '3.1.2'
 
 gem 'sass-rails', '>= 5.0.3'
 
