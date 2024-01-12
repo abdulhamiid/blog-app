@@ -1,23 +1,28 @@
+<div id="back">
+  <%= link_to user_path(@user) do %>
+    <i class="bi bi-arrow-left-circle-fill"></i>
+    <% end %>
+</div>
+
+<section class="container">
 <%= render "users/nav" %>
 
-<section>
-  <%= link_to "New Post", new_user_post_url(@user) %>
+<div class="mb-3">
+  <%= link_to "New Post", new_user_post_url(@user), class: "btn btn-secondary bg-black" %>
   <br/>
   <% @user.posts.each do |post| %>
-    <article class="p-4 my-3 border border-1 col-12>
-      <%= link_to link_to post.title, user_post_path(@user.id, post.id) %>
+    <article class="p-4 my-3 border border-1 col-12">
+      <h6><%= post.title %></h6>
       <p><%= post.text %></p>
       <span>Comments: <%= post.comments_counter%>,</span>
       <span>Likes: <%= post.likes_counter %></span>
     </article>
 
-    <div class="p-4 my-3 border border-1 col-12">
-      <% post.five_recent_comments.each do |comment| %>
-          <p><%= comment.author.name %>: <%= comment.text %></p>
-      <% end %>
-      </div>
+    <% post.five_recent_comments.each do |comment| %>
+        <p><%= comment.author.name %>: <%= comment.text %></p>
+    <% end %>
   <% end %>
-</section>
+</div>
 <br/>
 
-<button class="btn btn-outline-dark d-grid gap-2 col-3 mx-auto">Pagination</button>
+</section

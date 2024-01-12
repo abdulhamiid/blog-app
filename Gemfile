@@ -91,6 +91,8 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'sassc-rails'
+
 gem 'active_model_serializers', '~> 0.10.13'
 
 gem 'psych', '~> 3.3', '>= 3.3.0'

@@ -1,4 +1,7 @@
+<div class="registration">
 <h2 class="my-4">Log in</h2>
+
+<div class="session">
 <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= f.email_field :email, label_as_placeholder: true, autofocus: true, autocomplete: "email" %>
   <%= f.password_field :password, label_as_placeholder: true, autocomplete: "email" %>
@@ -11,8 +14,11 @@
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-success col-12 mb-3" %>
+    <%= f.submit "Log in", class: "btn btn-success col-12 mb-3 session_btn" %>
   </div>
 <% end %>
 
-<%= link_to "Sign up", new_registration_path(resource_name) %>
+</div>
+<p>New Member? <%= link_to "Sign up", new_registration_path(resource_name), class: "signup" %></p>
+
+</div>
