@@ -24,7 +24,6 @@ default: &default
 development:
   <<: *default
   database: blog_app_development
-  host: localhost
   username: postgres
   password: hamid
 
@@ -61,7 +60,6 @@ development:
 test:
   <<: *default
   database: blog_app_test
-  host: localhost
   username: postgres
   password: hamid
 

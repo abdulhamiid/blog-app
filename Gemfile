@@ -5,6 +5,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 ruby '3.1.2'
 
+gem 'sass-rails', '>= 5.0.3'
+
 gem 'cancancan'
 
 gem 'jwt'
@@ -92,3 +94,5 @@ end
 gem 'sassc-rails'
 
 gem 'active_model_serializers', '~> 0.10.13'
+
+gem 'psych', '~> 3.3', '>= 3.3.0'
