@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-ruby '3.1.2'
+ruby '3.2.2'
 
 gem 'cancancan'
 
@@ -88,5 +88,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem "sassc-rails"
 
 gem 'active_model_serializers', '~> 0.10.13'

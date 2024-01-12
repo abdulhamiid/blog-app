@@ -1,11 +1,17 @@
+<div id="back">
+  <%= link_to user_posts_path(@user) do %>
+    <i class="bi bi-arrow-left-circle-fill"></i>
+    <% end %>
+</div>
+<div class="container">
 <h1>New Post</h1>
 
 <%= bootstrap_form_for Post.new, url: user_posts_path, method: :post, local: true, scope: :post do |form| %>
   <div>
     <%= form.text_field :title, placeholder: "Post title" %>
     <%= form.text_area :text %>
-    <%= form.submit "Add Post" %>
+    <%= form.submit "Add Post", class: "btn btn-secondary bg-black" %>
   </div>
 <% end %>
 <br/>
-<%= link_to "Back", user_posts_path %>
+<div>

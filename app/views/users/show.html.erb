@@ -1,3 +1,11 @@
+<div id="home">
+  <%= link_to root_path do %>
+    <i class="bi bi-house-door-fill"></i>
+  <% end %>
+</div>
+
+<section class="container">
+
 <%= render "nav" %>
 
 <section class="p-4 my-3 border border-1 col-12">
@@ -5,15 +13,18 @@
   <p><%= @user.bio %></p>
 </section>
 
-<section class="p-4 my-3 border border-1 col-12">
-  <div>
+  <ul class="list-group my-3 col-12">
     <% @user.recent_posts.each do |post| %>
-      <h3>
-      <%= link_to link_to post.title, user_post_path(@user.id, post.id) %>
-      </h3>
-      <p><%= post.text %></p>
-    <% end %>
-  </div>
-</section>
-<%= link_to 'See all posts', user_posts_url(@user), class: "btn btn btn-outline-dark d-grid gap-2 col-3 mx-auto" %>
+      <%= link_to user_post_path(@user.id, post.id) do %>
 
+      <li class="border border-1 list-group-item my-2 bg-primary text-white">
+      <h4><%= post.title %></h4>
+      <p><%= post.text %></p>
+      </li>
+      <% end %>
+
+    <% end %>
+  </ul>
+<%= link_to 'See all posts', user_posts_url(@user), class: "btn btn-outline-dark ms-auto mb-3" %>
+<div>
+</section>

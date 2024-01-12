@@ -1,3 +1,9 @@
+<div id="back">
+  <%= link_to user_post_path(@user, @post) do %>
+    <i class="bi bi-arrow-left-circle-fill"></i>
+    <% end %>
+</div>
+<div class="container">
 <h1>New Comment</h1>
 
 <%= bootstrap_form_for Comment.new, url: user_post_comments_path, method: :post, local: true, scope: :comment do |form| %>
@@ -6,3 +12,4 @@
     <%= form.submit "Add Comment", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>

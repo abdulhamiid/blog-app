@@ -1,13 +1,23 @@
-<h1>All Users</h1>
+<div id="signout">
+<% if user_signed_in? %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <button type="button" class="btn btn-warning">Sign Out</button>
+  <% end %>
+<% end %>
+</div>
 
-<ul class="container">
-  <% @users.each do |user| %>
+<div class="container">
+  <h1>Users</h1>
+
+  <ul>
+    <% @users.each do |user| %>
     <li class="d-flex p-2 text-white my-3 align-items-center" >
       <img src="<%= user.photo %>" class="rounded-circle" alt="profile_img" width="70" height="70">
-      <div class="d-flex border border-1 ms-4 p-4 col">
+      <div class="border border-1 ms-4 p-4 col">
         <h4><%= link_to user.name, user %></h4>
-        <p class="text-success ms-auto">Number of posts: <%= user.posts_counter || 0 %></p>
-      </div>
-    </li>
-  <% end %>
-</ul>
+          <span class="text-success">Number of posts: <%= user.posts_counter || 0 %></span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
