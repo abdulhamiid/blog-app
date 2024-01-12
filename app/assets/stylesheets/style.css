@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -97,7 +98,8 @@ header {
   right: 15px;
 }
 
-#home a, #back a {
+#home a, 
+#back a {
   color: black;
   position: absolute;
   top: 10px;
@@ -105,7 +107,8 @@ header {
   font-size: 20px;
 }
 
-.like, .bi-trash-fill {
+.like, 
+.bi-trash-fill {
   font-size: 20px;
   background: none;
   border: none;
