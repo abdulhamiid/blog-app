@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApiController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
   def authorize_request

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -89,6 +91,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "sassc-rails"
+gem 'sassc-rails'
 
 gem 'active_model_serializers', '~> 0.10.13'
