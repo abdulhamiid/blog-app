@@ -121,3 +121,9 @@ header {
 .signup {
   color: #fff;
 }
+
+@media (min-width: 768px) {
+  .session {
+    width: 30%;
+  }
+}
