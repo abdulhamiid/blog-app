@@ -4,11 +4,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id].to_i)
+    @post = Post.find(params[:id].to_i)
   end
 
   def new
     @post = Post.new
+    @user = User.find(params[:user_id].to_i)
   end
 
   def create
