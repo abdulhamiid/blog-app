@@ -9,7 +9,6 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.email_field :email, placeholder: 'name@example.com', autofocus: true, autocomplete: "email" %>
       <%= f.text_field :name, autocomplete: "name", placeholder: "John Doe" %>
-      <%= f.text_field :photo, autocomplete: "photo", value: "https://www.w3schools.com/howto/img_avatar.png", placeholder: "https://www.w3schools.com/howto/img_avatar.png" %>
       <div>
         <%= f.file_field :user_image, accept: 'image/*', class: 'form-control' %>
       </div>
