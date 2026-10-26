@@ -20,6 +20,8 @@ class PostsController < ApplicationController
     @post.likes_counter = 0
 
     if @post.save
+      flash[:notice] = "Post successfully created"
+      flash[:success] = 'Post was successfully created.'
       redirect_to user_posts_path(@post.author_id)
     else
       render :new, status: :unprocessable_entity

@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-ruby '3.1.2'
+ruby '4.0.7'
 
 gem 'sass-rails', '>= 5.0.3'
 
@@ -12,7 +12,7 @@ gem 'cancancan'
 gem 'jwt'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.4'
+gem "rails", "~> 8.1.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -96,3 +96,10 @@ gem 'sassc-rails'
 gem 'active_model_serializers', '~> 0.10.13'
 
 gem 'psych', '~> 3.3', '>= 3.3.0'
+
+gem 'ostruct'
+
+gem 'logger'
+gem 'mutex_m'
+gem 'base64'
+gem 'bigdecimal'
