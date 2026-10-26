@@ -13,6 +13,7 @@
     <% @users.each do |user| %>
     <li class="d-flex p-2 text-white my-3 align-items-center" >
       <img src="<%= user.photo %>" class="rounded-circle" alt="profile_img" width="70" height="70">
+      <%= image_tag user.user_image, class: 'rounded-circle', alt: 'profile_img', width: 70, height: 70 if user.user_image.attached? %>
       <div class="border border-1 ms-4 p-4 col">
         <h4><%= link_to user.name, user %></h4>
           <span class="text-success">Number of posts: <%= user.posts_counter || 0 %></span>
