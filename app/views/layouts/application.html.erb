@@ -11,10 +11,33 @@
   </head>
 
   <body>
-    <div class="flash-messages">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p><br/>
+    <div class="flash">
+<% if flash[:notice].present? %>
+  <div class="flash-message flash-success" role="status">
+    <div class="flash-header">
+      <span class="flash-icon" aria-hidden="true">✓</span>
+      <div class="flash-content">
+        <h5>Success!</h5>
+        <p><%= flash[:notice] %></p>
+      </div>
     </div>
+  </div>
+<% end %>
+
+<% if flash[:alert].present? %>
+  <div class="flash-message flash-danger" role="alert">
+    <div class="flash-header">
+      <span class="flash-icon" aria-hidden="true">!</span>
+      <div class="flash-content">
+        <h5>Something went wrong</h5>
+        <p><%= flash[:alert] %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+    </div>
+
+
     <%= yield %>
   </body>
 </html>

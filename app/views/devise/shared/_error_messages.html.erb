@@ -1,12 +1,18 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
-    </h2>
-    <ul>
+  <div class="signup-errors" role="alert">
+    <div class="signup-errors-header">
+      <span class="signup-errors-icon">!</span>
+      <div>
+        <h5>Oops! Something went wrong</h5>
+        <p>
+          Please correct the following
+          <%= pluralize(resource.errors.count, "error") %>
+          to continue.
+        </p>
+      </div>
+    </div>
+
+    <ul class="signup-errors-list">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

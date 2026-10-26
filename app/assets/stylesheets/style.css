@@ -6,14 +6,97 @@
   padding: 0;
 }
 
-.flash-messages {
-  text-align: center;
+.flash {
+  /* text-align: center; */
   margin: 10px auto;
   width: 50%;
 }
 
 .registration-form {
-  text-align: center;
+  /* text-align: center; */
   width: 50%;
   margin: auto;
+}
+
+.flash-message {
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  animation: flashFadeIn 0.3s ease-out;
+}
+
+.flash-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.flash-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.flash-content h5 {
+  margin: 3px 0 5px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.flash-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* Success message */
+.flash-success {
+  color: #166534;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  border-left: 4px solid #16a34a;
+}
+
+.flash-success .flash-icon {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+/* Error message */
+.flash-danger {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fecaca;
+  border-left: 4px solid #dc2626;
+}
+
+.flash-danger .flash-icon {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+@keyframes flashFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-message {
+    animation: none;
+  }
 }

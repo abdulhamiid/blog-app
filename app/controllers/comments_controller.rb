@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
 
     if @comment.save
+      flash[:notice] = "Comment successfully created"
       redirect_to user_post_path(current_user, @post.id)
     else
       render :new, status: :unprocessable_entity
@@ -28,7 +29,7 @@ class CommentsController < ApplicationController
     @comment.post.decrement!(:comments_counter)
 
     if @comment.destroy
-      flash[:success] = 'Comment was successfully deleted.'
+      flash[:notice] = "Comment successfully deleted"
     else
       flash[:error] = 'Something went wrong'
     end

@@ -12,7 +12,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
-
+  after_validation do
+    puts "USER VALIDATION ERRORS: #{errors.full_messages.inspect}"
+  end
   def recent_posts
     posts.order('created_at Desc').last(3)
   end
