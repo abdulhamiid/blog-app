@@ -103,6 +103,10 @@
     border-color 0.25s ease;
 }
 
+.post-card:hover .read-more i {
+  transform: translateX(4px);
+}
+
 .post-card:hover {
   color: inherit;
   border-color: #c7d2fe;
@@ -138,10 +142,6 @@
   color: #4f46e5;
   font-size: 13px;
   font-weight: 700;
-}
-
-.post-card:hover .read-more i {
-  transform: translateX(4px);
 }
 
 .read-more i {
@@ -224,7 +224,6 @@
     transform: none;
   }
 }
-
 
 /* Users page */
 .users-page {
