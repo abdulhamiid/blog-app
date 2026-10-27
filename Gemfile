@@ -104,3 +104,4 @@ gem 'mutex_m'
 gem 'base64'
 gem 'bigdecimal'
 gem 'fiddle'
+gem "dockerfile-rails", "~> 1.7"

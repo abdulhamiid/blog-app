@@ -86,7 +86,9 @@ p {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: min(420px, calc(100% - 32px));
+  width: 420px;
+  width: calc(100% - 32px);
+  max-width: 420px;
   pointer-events: none;
 }
 
