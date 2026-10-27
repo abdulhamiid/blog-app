@@ -28,7 +28,11 @@ body {
   margin: 0;
   background: var(--app-background);
   color: var(--app-text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -190,9 +194,10 @@ p {
 .btn {
   border-radius: 9px;
   font-weight: 600;
-  transition: transform 0.2s ease,
-              box-shadow 0.2s ease,
-              background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .btn:hover {
@@ -243,4 +248,3 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
-
