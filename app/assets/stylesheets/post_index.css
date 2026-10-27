@@ -103,6 +103,10 @@
     border-color 0.25s ease;
 }
 
+.read-more i {
+  transition: transform 0.2s ease;
+}
+
 .post-card:hover .read-more i {
   transform: translateX(4px);
 }
@@ -142,10 +146,6 @@
   color: #4f46e5;
   font-size: 13px;
   font-weight: 700;
-}
-
-.read-more i {
-  transition: transform 0.2s ease;
 }
 
 /* See all posts */
