@@ -11,6 +11,13 @@
   margin: 20px 0 10px 20px;
 }
 
+/* Keyboard accessibility */
+.user-posts-page a:focus-visible,
+#back a:focus-visible {
+  outline: 3px solid #8ac9a4;
+  outline-offset: 3px;
+}
+
 #back a {
   display: inline-flex;
   align-items: center;
@@ -187,13 +194,6 @@
   line-height: 1.65;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
-}
-
-/* Keyboard accessibility */
-.user-posts-page a:focus-visible,
-#back a:focus-visible {
-  outline: 3px solid #8ac9a4;
-  outline-offset: 3px;
 }
 
 /* Tablet and mobile */
