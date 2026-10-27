@@ -1,22 +1,54 @@
+
 <div id="signout">
-<% if user_signed_in? %>
-  <%= link_to destroy_user_session_path, method: :delete do %>
-    <button type="button" class="btn btn-warning">Sign Out</button>
+  <% if user_signed_in? %>
+    <%= button_to "Sign Out",
+        destroy_user_session_path,
+        method: :delete,
+        class: "signout-btn" %>
   <% end %>
-<% end %>
 </div>
 
-<div class="container">
-  <h1>Users</h1>
+<div class="container users-page">
+  <div class="users-header">
+    <div>
+      <h1>Our Community</h1>
+      <p>Meet the people sharing their stories.</p>
+    </div>
+    <span class="users-count">
+      <%= @users.count %> members
+    </span>
+  </div>
 
-  <ul>
+  <ul class="users-list">
     <% @users.each do |user| %>
-    <li class="d-flex p-2 text-white my-3 align-items-center" >
-      <img src="<%= user.photo %>" class="rounded-circle" alt="profile_img" width="70" height="70">
-      <div class="border border-1 ms-4 p-4 col">
-        <h4><%= link_to user.name, user %></h4>
-          <span class="text-success">Number of posts: <%= user.posts_counter || 0 %></span>
+      <li class="user-card">
+        <%= link_to user, class: "user-avatar-link" do %>
+          <% if user.user_image.attached? %>
+            <%= image_tag user.user_image,
+                class: "user-avatar",
+                alt: "#{user.name}'s profile picture" %>
+          <% else %>
+            <div class="user-avatar user-avatar-placeholder">
+              <i class="bi bi-person-fill"></i>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="user-info">
+          <h4>
+            <%= link_to user.name, user, class: "user-name" %>
+          </h4>
+
+          <span class="post-count">
+            <i class="bi bi-journal-text"></i>
+            <%= user.posts_counter || 0 %> posts
+          </span>
         </div>
+
+        <%= link_to user, class: "user-view-link",
+            aria: { label: "View #{user.name}'s profile" } do %>
+          <i class="bi bi-arrow-up-right"></i>
+        <% end %>
       </li>
     <% end %>
   </ul>

@@ -1,7 +1,8 @@
 <header>
-  <img src="<%= @user.photo %>" class="rounded-circle" alt="profile_img" width="70" height="70">
+  <%= image_tag @user.user_image, class: 'rounded-circle', alt: 'profile_img', width: 70, height: 70 if @user.user_image.attached? %>
   <div>
-    <h1><%= @user.name %></h1>
+      <h1><%= @user.name %>'s Posts</h1>
+
     <p class="ms-auto">
     <span>Number of posts: </span>
     <span><%= @user.posts_counter || 0 %></span>

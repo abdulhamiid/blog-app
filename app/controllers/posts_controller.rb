@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     @post.likes_counter = 0
 
     if @post.save
+      flash[:notice] = "Post successfully created"
       redirect_to user_posts_path(@post.author_id)
     else
       render :new, status: :unprocessable_entity
@@ -31,7 +32,7 @@ class PostsController < ApplicationController
     @post.author.decrement!(:posts_counter)
 
     if @post.destroy
-      flash[:success] = 'Post was successfully deleted.'
+      flash[:notice] = "Post successfully deleted"
     else
       flash[:error] = 'Something went wrong'
     end

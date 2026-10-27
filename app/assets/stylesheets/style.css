@@ -1,129 +1,249 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
+/* =====================================
+   BLOG APP GLOBAL STYLES
+===================================== */
+
+:root {
+  --app-green: #198754;
+  --app-green-dark: #146c43;
+  --app-text: #252d27;
+  --app-muted: #6c757d;
+  --app-background: #f5f7f5;
+  --app-border: #e5eae6;
+}
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  width: 65%;
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
+  background: var(--app-background);
+  color: var(--app-text);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.registration {
-  background-color: #60a61b;
-  position: absolute;
-  padding: 10px;
-  padding-top: 50px;
-  width: 100%;
-  top: 0;
-  color: #fff;
-  height: auto;
-  min-height: 100%;
-  text-align: center;
+/* Links */
+a {
+  color: var(--app-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.registration h2 {
-  margin-bottom: 20px;
+a:hover {
+  color: var(--app-green-dark);
 }
 
-.session {
-  width: 96%;
-  margin: auto;
-  background-color: aliceblue;
-  color: #000;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+/* Form controls */
+input,
+textarea,
+select,
+button {
+  font: inherit;
 }
 
-.session > form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px 0;
-}
-
-.session_btn {
-  background-color: #60a61b;
-  color: #fff;
-  border: none;
-}
-
-.login {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.bi-arrow-left-circle {
-  color: #fff;
-  font-size: 25px;
-  position: absolute;
-  top: 10px;
-  left: 15px;
-}
-
-.notice {
-  color: #60a61b;
-  position: absolute;
-  top: 10px;
-  left: 15px;
-}
-
-.container {
-  position: absolute;
-  width: 100%;
-}
-
-.container ul {
-  padding: 0;
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 header {
-  width: 100%;
+  display: flex;
+  gap: 20px;
 }
 
-#back > a {
-  color: black;
+header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  gap: 20px;
+}
+
+p {
+  margin: auto;
+}
+
+/* =====================================
+   FLASH NOTIFICATIONS
+===================================== */
+
+.flash {
+  top: 20px;
+  right: 20px;
+  z-index: 1055;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 420px;
+  width: calc(100% - 32px);
+  max-width: 420px;
+  pointer-events: none;
+}
+
+.flash-message {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(25, 40, 30, 0.12);
+  animation: flashSlideIn 0.35s ease-out;
+  pointer-events: auto;
+}
+
+.flash-message::before {
   position: absolute;
-  top: 10px;
-  left: 15px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: currentColor;
+  content: "";
 }
 
-#signout > a {
-  color: black;
-  position: absolute;
-  top: 10px;
-  right: 15px;
+.flash-success {
+  border-color: #d5ebdc;
+  background: #f3fbf5;
+  color: #176b3a;
 }
 
-#home a,
-#back a {
-  color: black;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
+.flash-danger {
+  border-color: #f2d4d7;
+  background: #fff5f5;
+  color: #a52834;
 }
 
-.like,
-.bi-trash-fill {
-  font-size: 20px;
-  background: none;
-  border: none;
+.flash-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
 }
 
-.bi-file-x {
-  font-size: 20px;
+.flash-icon {
+  display: flex;
+  flex: 0 0 34px;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(25, 135, 84, 0.12);
+  color: #198754;
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
-.signup {
-  color: #fff;
+.flash-danger .flash-icon {
+  background: rgba(220, 53, 69, 0.12);
+  color: #dc3545;
 }
 
-@media (min-width: 768px) {
-  .session {
-    width: 30%;
+.flash-content {
+  min-width: 0;
+}
+
+.flash-content h5 {
+  margin: 2px 0 4px;
+  color: inherit;
+  font-size: 0.98rem;
+  font-weight: 750;
+}
+
+.flash-content p {
+  margin: 0;
+  color: #5e6961;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Flash entrance animation */
+@keyframes flashSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =====================================
+   SHARED BUTTON STYLING
+===================================== */
+
+.btn {
+  border-radius: 9px;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(25, 135, 84, 0.35);
+  outline-offset: 3px;
+}
+
+/* =====================================
+   RESPONSIVE LAYOUT
+===================================== */
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 576px) {
+  .flash {
+    top: 12px;
+    right: 12px;
+    width: calc(100% - 24px);
+    margin: auto;
+    margin-top: 12px;
+  }
+
+  .flash-message {
+    padding: 15px;
+    border-radius: 12px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

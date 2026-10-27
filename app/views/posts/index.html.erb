@@ -1,28 +1,54 @@
+
 <div id="back">
-  <%= link_to user_path(@user) do %>
+  <%= link_to user_path(@user), aria: { label: "Back to profile" } do %>
     <i class="bi bi-arrow-left-circle-fill"></i>
-    <% end %>
-</div>
-
-<section class="container">
-<%= render "users/nav" %>
-
-<div class="mb-3">
-  <%= link_to "New Post", new_user_post_url(@user), class: "btn btn-secondary bg-black" %>
-  <br/>
-  <% @user.posts.each do |post| %>
-    <article class="p-4 my-3 border border-1 col-12">
-      <h6><%= post.title %></h6>
-      <p><%= post.text %></p>
-      <span>Comments: <%= post.comments_counter%>,</span>
-      <span>Likes: <%= post.likes_counter %></span>
-    </article>
-
-    <% post.five_recent_comments.each do |comment| %>
-        <p><%= comment.author.name %>: <%= comment.text %></p>
-    <% end %>
   <% end %>
 </div>
-<br/>
 
-</section
+<section class="container user-posts-page">
+
+  <div class="user-posts-heading">
+    <div>
+  <%= render "users/nav" %>
+      <p>Stories, thoughts, and conversations.</p>
+    </div>
+
+    <%= link_to new_user_post_path(@user), class: "new-post-btn" do %>
+      <i class="bi bi-plus-circle"></i>
+      New Post
+    <% end %>
+  </div>
+
+  <div class="user-posts-list">
+    <% @user.posts.each do |post| %>
+      <article class="user-post-card">
+        <h2 class="user-post-title"><%= post.title %></h2>
+
+        <p class="user-post-text"><%= post.text %></p>
+
+        <div class="user-post-stats">
+          <span>
+            <i class="bi bi-chat-dots"></i>
+            Comments: <%= post.comments_counter || 0 %>
+          </span>
+
+          <span>
+            <i class="bi bi-heart"></i>
+            Likes: <%= post.likes_counter || 0 %>
+          </span>
+        </div>
+      </article>
+
+      <div class="user-post-comments">
+        <h3><i class="bi bi-chat-left-text"></i> Recent Comments</h3>
+
+        <% post.five_recent_comments.each do |comment| %>
+          <div class="user-post-comment">
+            <strong><%= comment.author.name %></strong>
+            <p><%= comment.text %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
