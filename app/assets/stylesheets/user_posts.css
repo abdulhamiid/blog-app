@@ -11,6 +11,11 @@
   margin: 20px 0 10px 20px;
 }
 
+.user-posts-page a:focus-visible {
+  outline: 3px solid #8ac9a4;
+  outline-offset: 3px;
+}
+
 #back a {
   display: inline-flex;
   align-items: center;
@@ -22,7 +27,6 @@
 }
 
 /* Keyboard accessibility */
-.user-posts-page a:focus-visible,
 #back a:focus-visible {
   outline: 3px solid #8ac9a4;
   outline-offset: 3px;
