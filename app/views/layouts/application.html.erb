@@ -1,43 +1,53 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>BlogApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application",
+        "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "style",
+        "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
-    <%= stylesheet_link_tag "style.css" %>
   </head>
 
   <body>
-    <div class="flash">
-<% if flash[:notice].present? %>
-  <div class="flash-message flash-success" role="status">
-    <div class="flash-header">
-      <span class="flash-icon" aria-hidden="true">✓</span>
-      <div class="flash-content">
-        <h5>Success!</h5>
-        <p><%= flash[:notice] %></p>
-      </div>
-    </div>
-  </div>
-<% end %>
+    <div class="flash" aria-live="polite">
+      <% if flash[:notice].present? %>
+        <div class="flash-message flash-success" role="status">
+          <div class="flash-header">
+            <span class="flash-icon" aria-hidden="true">✓</span>
 
-<% if flash[:alert].present? %>
-  <div class="flash-message flash-danger" role="alert">
-    <div class="flash-header">
-      <span class="flash-icon" aria-hidden="true">!</span>
-      <div class="flash-content">
-        <h5>Something went wrong</h5>
-        <p><%= flash[:alert] %></p>
-      </div>
-    </div>
-  </div>
-<% end %>
+            <div class="flash-content">
+              <h5>Success!</h5>
+              <p><%= flash[:notice] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <% if flash[:alert].present? %>
+        <div class="flash-message flash-danger" role="alert">
+          <div class="flash-header">
+            <span class="flash-icon" aria-hidden="true">!</span>
+
+            <div class="flash-content">
+              <h5>Something went wrong</h5>
+              <p><%= flash[:alert] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
 
-
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,25 +1,59 @@
-<div class="registration-form" id="login">
 
-<h2>Welcome back!</h2>
-<p>Log in to your account</p>
+<div class="login-page">
+  <div class="registration-form" id="login">
 
+    <div class="login-icon">
+      <i class="bi bi-person-lock"></i>
+    </div>
 
-    <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
-      <%= f.email_field :email, label_as_placeholder: true, autofocus: true, autocomplete: "email" %>
-      <%= f.password_field :password, label_as_placeholder: true, autocomplete: "email" %>
-      <div class="d-flex justify-content-between">
+    <h2>Welcome back!</h2>
+    <p class="login-subtitle">Log in to your account to continue.</p>
+
+    <%= bootstrap_form_for(
+      resource,
+      as: resource_name,
+      url: session_path(resource_name),
+      data: { turbo: false }
+    ) do |f| %>
+
+      <%= f.email_field :email,
+          label: "Email address",
+          placeholder: "Enter your email",
+          autofocus: true,
+          autocomplete: "email" %>
+
+      <%= f.password_field :password,
+          label: "Password",
+          placeholder: "Enter your password",
+          autocomplete: "current-password" %>
+
+      <div class="login-options">
         <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me %>
+          <div class="remember-me">
+            <%= f.check_box :remember_me %>
+          </div>
         <% end %>
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+
+        <% if devise_mapping.recoverable? &&
+              controller_name != "passwords" &&
+              controller_name != "registrations" %>
+          <%= link_to "Forgot password?",
+              new_password_path(resource_name),
+              class: "forgot-password" %>
         <% end %>
       </div>
+
       <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-success col-12 mb-3 session_btn" %>
+        <%= f.submit "Log in", class: "login-submit" %>
       </div>
     <% end %>
-  </div>
-  <p>New Member? <%= link_to "Sign up", new_registration_path(resource_name), class: "signup" %></p>
 
+    <div class="login-footer">
+      <span>New member?</span>
+      <%= link_to "Create an account",
+          new_registration_path(resource_name),
+          class: "signup" %>
+    </div>
+
+  </div>
 </div>

@@ -5,9 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :posts, foreign_key: 'author_id'
-  has_many :comments, foreign_key: 'author_id'
-  has_many :likes, foreign_key: 'author_id'
+  has_many :posts, dependent: :destroy, foreign_key: 'author_id'
+  has_many :comments, dependent: :destroy, foreign_key: 'author_id'
+  has_many :likes, dependent: :destroy, foreign_key: 'author_id'
   has_one_attached :user_image
 
   validates :name, presence: true
