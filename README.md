@@ -24,9 +24,10 @@ Go ahead and check the most recent version of each of these:
 - Node.js (node --version)
 - Yarn (yarn --version)
 - Rails (rails --version)
+- Postgres 
 
 ## Live Demo
-🚀 [View](https://blog-app-o2ip.onrender.com/) 🔥
+🚀 [View](https://blog-app-snowy-morning.onrender.com/users/sign_in) 🔥
 ### Clone this repository
 
 To clone the repo run:
@@ -62,7 +63,6 @@ rake db:seed
 👤 **Abdulhamid**
 
 - GitHub: [abdulhamiid](https://github.com/abdulhamiid)
-- Twitter: [@abdulhamid_adio](https://twitter.com/abdulhamid_adio)
 - LinkedIn: [Adio Abdulhamid](https://linkedin.com/abdulhamid_adio)
 
 ## 🤝 Contributing
